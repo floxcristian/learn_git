@@ -2,10 +2,18 @@
 
 # 1. Introducción
 # 2. Instalación
+
+## 2.1. Windows
+## 2.2. Linux
+## 2.3. Mac
+
 # 3. Configuración
 
 
-Muestra la rama en la que nos encontramos y los archivos dentro del repositorio pero a los que no se les están haciendo seguimiento.
+Muestra la 
++ rama actual.
++ archivos en el stage.
++ archivos que no están en el stage ()
 ```
 git status
 ```
