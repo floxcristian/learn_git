@@ -74,10 +74,11 @@ git reset *.xml // excluye todos los archivos xml
 Crea registro histórico con archivos en el stage.
 
 
-## Reconstruir proyecto
+## Revertir cambios
 Reconstruye el proyecto dejándolo como el último commit que realizamos.
 ```
 git checkout -- .
+git checkout -- <nombre_archivo>
 ```
 ## Ver historial de cambios
 Ver cambios desde el más reciente a mas viejo.
@@ -104,4 +105,67 @@ git status -s -b // s: silent, b: branch
 
 -<letra><letra>... // Cuando se pone un solo "-" significa que cada letra a continuación es un comando independiente
 
-## Git Alias
+## Creando alias para nuestros comandos
+
+Podemos añadir alías a la configuración de git.
+```
+git config --global alias.lg "log --oneline --decorate --all" // 'lg' es el shortcut
+git config --global alias.s "status -s -b"
+```
+
+```
+git status -sb = git status -s -b
+```
+
+```
+// comando visto en instagram:
+// Usado cuando intento psuhear algo y me doi cuenta que ha habido cambios en el flujo principal
+alias repush="git pull --rebase && git push"
+alias repush="git push -f"
+
+
+```
+
+Para ver la lista de todos los alias añadidos a la configuración:
+```
+git config -- global -l
+```
+```
+Si también queremos modificarla:
+git config -- global -e
+```
+## Ver cambios
+
+Visualizar cambios entre el último commit y el momento actual.
+```
+git diff
+```
+
+Verificar cambios si los archivos estan en STAGE.
+```
+git diff --staged
+```
+## Sacar archivos de STAGE
+
+```
+git reset HEAD <archivo>
+
+```
+
+## Enviar archivos al STAGE y hacer push en un solo comando
+
+```
+git push -am "message"
+```
+
+## Actualizar un commit
+```
+git commit --amend -m "new_message"
+```
+
+## Git Reset
+
+```
+git reset --soft HEAD
+```
+
