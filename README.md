@@ -165,10 +165,34 @@ git commit --amend -m <new_message>
 
 ## Git Reset
 
+HEAD^: Apunta al commit anterior al último.
+Deje en el penultimo commit sin eliminar los cambios. Deja los cambios fuera del STAGE.
 ```
-git reset --soft HEAD
+git reset --soft HEAD^
+git reset --soft <id_commit>^
 ```
 
+mixed: comando por defecto si no añadieramos un flag.
+Nos movemos a un punto en el tiempo.
+Archivos son quitados del stage pero aun contienen las modificaciones.
 ```
-git reset --soft HEAD
+git reset --mixed <id_commit>
 ```
+
+Nos movemos a un punto de la historia destruyendo todos los archivos que no corresponden a ese punto.
+```
+git reset --hard <id_commit>
+```
+
+Regresar a un punto a pesar de haber hecho un git reset.
+Git siempre mantiene un registro de todo lo que sucede en el repositorio.
+```
+git reflog
+```
+
+Aquí buscamos el id del punto al que queramos volver. Luego
+```
+git reset --hard <id_commit>
+```
+
+## Viajes en el tiempo
