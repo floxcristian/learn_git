@@ -148,19 +148,19 @@ git diff --staged
 ## Sacar archivos de STAGE
 
 ```
-git reset HEAD <archivo>
+git reset HEAD <nombre_archivo>
 
 ```
 
 ## Enviar archivos al STAGE y hacer push en un solo comando
 
 ```
-git push -am "message"
+git commit -am <message>
 ```
 
 ## Actualizar un commit
 ```
-git commit --amend -m "new_message"
+git commit --amend -m <new_message>
 ```
 
 ## Git Reset
@@ -169,3 +169,6 @@ git commit --amend -m "new_message"
 git reset --soft HEAD
 ```
 
+```
+git reset --soft HEAD
+```
