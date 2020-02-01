@@ -203,6 +203,7 @@ git reset --hard <id_commit>
 + Git no rastrea explicitamente cambios de nombre en archivos. 
 + Si renombra un archivo, no se guardará ningún metadato que indique que renombró el archivo.
 
+<img src="https://i.imgur.com/f6YJYmx.png">
 
 - ¿Cómo se detecta el cambio de nombre?
 
