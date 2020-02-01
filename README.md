@@ -196,3 +196,6 @@ git reset --hard <id_commit>
 ```
 
 ## Viajes en el tiempo
+
+
+## Cambiar y eliminar archivos con Git
