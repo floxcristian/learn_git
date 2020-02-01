@@ -109,7 +109,7 @@ git status -s -b // s: silent, b: branch
 
 Podemos añadir alías a la configuración de git.
 ```
-git config --global alias.lg "log --oneline --decorate --all" // 'lg' es el shortcut
+git config --global alias.l "log --oneline --decorate --all" // 'lg' es el shortcut
 git config --global alias.s "status -s -b"
 ```
 
@@ -198,4 +198,38 @@ git reset --hard <id_commit>
 ## Viajes en el tiempo
 
 
-## Cambiar y eliminar archivos con Git
+## Cambiar nombre de archivos
+
++ Git no rastrea explicitamente cambios de nombre en archivos. 
++ Si renombra un archivo, no se guardará ningún metadato que indique que renombró el archivo.
+
+
+- ¿Cómo se detecta el cambio de nombre?
+
+### Git mv
+
+```
+git mv <file_name.ext> <new_file_name.ext>
+```
++ Este comando permite ser explciito.
++ Equivale a la ejecución de lo siguiente:
+```
+mv <file_name.ext> <new_file_name.ext>
+git rm <file_name.ext>
+git add <new_file_name>
+```
+
+También es posible cambiar los nombres manualmente pero por Git es tomado como si se hubiese eliminado un archivo y creado otro con otro nombre.
+
+La ventajas de git mv es que git llevará un control correcto de que hubo una modificación de nombre. De esta forma con el historico de cambios puedes ver como se llamaba anteriormente el archivo.
+
+
+## Eliminar archivo
+
+Para llevar el control de eliminación se debe usar
+
+```
+git rm <file_name.ext>
+```
+
+https://www.iteramos.com/pregunta/3962/cual-es-el-proposito-de-git-mv
