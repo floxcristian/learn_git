@@ -220,6 +220,16 @@ git rm <file_name.ext>
 git add <new_file_name>
 ```
 
+<img src="https://i.imgur.com/iE0Gcdo.png">
+
+<img src="https://i.imgur.com/ZeZYHXD.png">
+
+<img src="https://i.imgur.com/eu4Dcz9.png">
+
+<img src="https://i.imgur.com/vArzTiy.png">
+<br>
+<img src="https://i.imgur.com/7owrOAz.png">
+
 También es posible cambiar los nombres manualmente pero por Git es tomado como si se hubiese eliminado un archivo y creado otro con otro nombre.
 
 La ventajas de git mv es que git llevará un control correcto de que hubo una modificación de nombre. De esta forma con el historico de cambios puedes ver como se llamaba anteriormente el archivo.
