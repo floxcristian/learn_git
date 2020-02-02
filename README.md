@@ -1,5 +1,7 @@
 <h1>Entendiendo Git</h1>
 
+<img src="https://miro.medium.com/max/5000/0*a2jcqSzpTl6HQp35">
+
 # 1. Introducción
 # 2. Instalación
 
@@ -249,3 +251,8 @@ git rm <file_name.ext>
 ```
 
 https://www.iteramos.com/pregunta/3962/cual-es-el-proposito-de-git-mv
+https://github.com/mikeizbicki/ucr-cs100/blob/2015winter/textbook/cheatsheets/git-cheatsheet.md
+https://try.github.io/
+https://github.com/pcottle/learnGitBranching
+https://datagoodie.com/blog/git-simple-tutorial-explanation-LEVEL-4/
+https://learngitbranching.js.org/
