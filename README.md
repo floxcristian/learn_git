@@ -203,6 +203,8 @@ git reset --hard <id_commit>
 + Git no rastrea explicitamente cambios de nombre en archivos. 
 + Si renombra un archivo, no se guardará ningún metadato que indique que renombró el archivo.
 
+Al cambiar un nombre de archivo manualmente, por ejemplo a tráves de VSCode o usando el comando mv sucede lo siguiente:
+
 <img src="https://i.imgur.com/f6YJYmx.png">
 
 - ¿Cómo se detecta el cambio de nombre?
@@ -219,6 +221,7 @@ mv <file_name.ext> <new_file_name.ext>
 git rm <file_name.ext>
 git add <new_file_name>
 ```
+El comando mv equivale a cambiar el nombre de un archivo manualmente.
 
 <img src="https://i.imgur.com/iE0Gcdo.png">
 
@@ -234,6 +237,8 @@ También es posible cambiar los nombres manualmente pero por Git es tomado como 
 
 La ventajas de git mv es que git llevará un control correcto de que hubo una modificación de nombre. De esta forma con el historico de cambios puedes ver como se llamaba anteriormente el archivo.
 
+Ejercicio:
+Cambiar el nombre de varios archivos a su equivalente en inglés.
 
 ## Eliminar archivo
 
