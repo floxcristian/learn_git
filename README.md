@@ -115,6 +115,9 @@ git config --global alias.l "log --oneline --decorate --all" // 'lg' es el short
 git config --global alias.s "status -s -b"
 ```
 
+git config --global core.editor nano
+git config --list
+
 ```
 git status -sb = git status -s -b
 ```
@@ -165,7 +168,7 @@ git commit -am <message>
 git commit --amend -m <new_message>
 ```
 
-## Git Reset
+## git reset
 
 HEAD^: Apunta al commit anterior al último.
 Deje en el penultimo commit sin eliminar los cambios. Deja los cambios fuera del STAGE.
@@ -211,7 +214,7 @@ Al cambiar un nombre de archivo manualmente, por ejemplo a tráves de VSCode o u
 
 - ¿Cómo se detecta el cambio de nombre?
 
-### Git mv
+### git mv
 
 ```
 git mv <file_name.ext> <new_file_name.ext>

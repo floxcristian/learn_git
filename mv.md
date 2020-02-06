@@ -1,3 +1,5 @@
+# Cambiar nombre de archivos
+
 ```
 git mv oldname newname
 ```
@@ -15,7 +17,7 @@ Por supuesto, no es perfecta.
 Git mv permite ser explicito con su intención y evitar así algunos errores.
 
 ---
-Ejemplo 1:
+## Ejemplo 1:
 
 ```
 mv a c
@@ -29,4 +31,24 @@ Resultado:
 
 # Untracked files:
 c
+```
+
+Si quisieramos ver el historial de lo que se hizo mas adelante veríamos algo como lo siguiente:
+```
+git diff
+```
+
+--- 
+# Ejemplo 2:
+
+Mover el archivo hello.html a la carpeta lib.
+
+```
+mkdir lib
+git mv hello.html lib
+git status
+```
+Resultado:
+```
+renamed:    hello.html -> lib/hello.html
 ```
