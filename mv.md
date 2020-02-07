@@ -52,3 +52,28 @@ Resultado:
 ```
 renamed:    hello.html -> lib/hello.html
 ```
+Ahora si intentamos
+```
+git mv a c
+```
+Resultado:
+```
+renamed: a -> c
+```
+
+Genial! 
+Y si intentamos 
+```
+git mv b a
+```
+
+Resultado:
+```
+modified:   a
+deleted:    b
+new file:   c
+```
+Nos damos cuenta que nada es perfecto.
+
+---
+Tenga cuidado con el cambio de nombre. Cualquier opción puede producir efectos extraños.

@@ -82,13 +82,16 @@ Reconstruye el proyecto dejándolo como el último commit que realizamos.
 git checkout -- .
 git checkout -- <nombre_archivo>
 ```
-## Ver historial de cambios
-Ver cambios desde el más reciente a mas viejo.
+## Git log
+
++ Historial de cambios desde el más reciente al mas antiguo.
+
 ```
 git log // Ver todo el historial
 git log --oneline // Ver historial de forma resumida
 git log --oneline --decorate --all --graph // decorate y graph permite mostrar arbol graficamente
-
+git log -- <file_name>
+git log --follow <file_name>
 ```
 hash
 HEAD: último commit en la rama actual
