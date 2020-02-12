@@ -3,11 +3,8 @@
 <img src="https://miro.medium.com/max/5000/0*a2jcqSzpTl6HQp35">
 
 # 1. Introducción
-# 2. Instalación
 
-## 2.1. Windows
-## 2.2. Linux
-## 2.3. Mac
+
 
 # 3. Configuración
 
@@ -31,28 +28,28 @@ git commit -m "message"
 
 # 4. Comandos útiles
 
-## Iniciar repositorio local:
+## 4.1. git init
 
-Suponiendo que ya tenemos un proyecto y estamos situados dentro del directorio de este.
-```
-git init
-```
-Este comando crea una carpeta .git la cual contiene un historial de todas las modificaciones que hemos realizado en nuestro repositorio.
++ Inicia un repositorio local.
++ Crea una carpeta `.git` la cual contendrá el historial de todas las modificaciones que realicemos en el repositorio.
 
-## Ver cambios desde el último commit a la fecha:
-```
-git status
-```
+## 4.2. git status
+
++ Muestra cambios desde el último commit a la fecha.
+
+Muestra:
 + Rama actual.
-+ Cambios pendientes. Ficheros que han recibido modificaciones desde el último commit.
++ Archivos en el STAGE.
++ Archivos que no estan en el STAGE.
++ Cambios pendientes: ficheros que han recibido modificaciones desde el último commit.
 
-## Preparar cambios para enviarlos al repositorio
-```
-git add 
-```
-+ Envía archivos al stage.
+## 4.3. git add 
+
++ Prepara cambios para enviarlos al repositorio.
++ Envía archivos al STAGE.
 
 ## Diferentes formas de enviar archivos al STAGE
+
 Lo ideal es que cada commit responda a algo específico.
 ```
 git add . // git add -all // git add -A  // Agrega todos los archivos
@@ -76,19 +73,20 @@ git reset *.xml // excluye todos los archivos xml
 Crea registro histórico con archivos en el stage.
 
 
-## Revertir cambios
-Reconstruye el proyecto dejándolo como el último commit que realizamos.
+## git checkout
+
+Permite revertir cambios dejándo el proyecto según el último commit realizado.
 ```
 git checkout -- .
 git checkout -- <nombre_archivo>
 ```
-## Git log
+## git log
 
-+ Historial de cambios desde el más reciente al mas antiguo.
+Muestra el historial de cambios desde lo mas reciente a lo mas antiguo.
 
 ```
-git log // Ver todo el historial
-git log --oneline // Ver historial de forma resumida
+git log // todo el historial
+git log --oneline // historial de forma resumida
 git log --oneline --decorate --all --graph // decorate y graph permite mostrar arbol graficamente
 git log -- <file_name>
 git log --follow <file_name>
@@ -99,27 +97,32 @@ rama actual
 Autor
 fecha
 
-## Agregando comandos
+## Añadiendo flags
 
---<palabra> // Cuando se ponen dos "--" es porque a continuación viene una palabra
+Cuando se antepone `--` es porque a continuación viene una palabra.
+
+--<palabra> 
+
 Ejemplo:
 ```
 git status -s
 git status -s -b // s: silent, b: branch
 ```
+// Cuando se pone un solo `-` significa que cada letra a continuación es un comando independiente.
 
--<letra><letra>... // Cuando se pone un solo "-" significa que cada letra a continuación es un comando independiente
+-<letra><letra>... 
 
 ## Creando alias para nuestros comandos
 
-Podemos añadir alías a la configuración de git.
+Podemos añadir alias a la configuración de git.
 ```
 git config --global alias.l "log --oneline --decorate --all" // 'lg' es el shortcut
 git config --global alias.s "status -s -b"
 ```
-
+```
 git config --global core.editor nano
 git config --list
+```
 
 ```
 git status -sb = git status -s -b
@@ -138,18 +141,15 @@ Para ver la lista de todos los alias añadidos a la configuración:
 ```
 git config -- global -l
 ```
+Si queremos ver y modificar:
 ```
-Si también queremos modificarla:
 git config -- global -e
 ```
-## Ver cambios
+## git diff
 
-Visualizar cambios entre el último commit y el momento actual.
-```
-git diff
-```
++ Muestra cambios entre el último commit y el momento actual.
 
-Verificar cambios si los archivos estan en STAGE.
+Para verificar cambios si los archivos estan en STAGE.
 ```
 git diff --staged
 ```
@@ -191,12 +191,10 @@ Nos movemos a un punto de la historia destruyendo todos los archivos que no corr
 ```
 git reset --hard <id_commit>
 ```
+## git reflog
 
-Regresar a un punto a pesar de haber hecho un git reset.
-Git siempre mantiene un registro de todo lo que sucede en el repositorio.
-```
-git reflog
-```
++ Permite regresar a un punto a pesar de haber hecho un git reset.
++ Git siempre mantiene un registro de todo lo que sucede en el repositorio.
 
 Aquí buscamos el id del punto al que queramos volver. Luego
 ```
@@ -217,7 +215,7 @@ Al cambiar un nombre de archivo manualmente, por ejemplo a tráves de VSCode o u
 
 - ¿Cómo se detecta el cambio de nombre?
 
-### git mv
+## git mv
 
 ```
 git mv <file_name.ext> <new_file_name.ext>
@@ -248,7 +246,9 @@ La ventajas de git mv es que git llevará un control correcto de que hubo una mo
 Ejercicio:
 Cambiar el nombre de varios archivos a su equivalente en inglés.
 
-## Eliminar archivo
+## git rm
+
+Eliminar archivo.
 
 Para llevar el control de eliminación se debe usar
 
