@@ -45,8 +45,7 @@ Muestra:
 
 ## 4.3. git add 
 
-+ Prepara cambios para enviarlos al repositorio.
-+ Envía archivos al STAGE.
++ Prepara cambios para enviarlos al repositorio: envía archivos al `STAGE`.
 
 ## Diferentes formas de enviar archivos al STAGE
 
@@ -104,13 +103,15 @@ Cuando se antepone `--` es porque a continuación viene una palabra.
 --<palabra> 
 
 Ejemplo:
+
+// Cuando se pone un solo `-` significa que cada letra a continuación es un comando independiente.
+
+-<letra><letra>... 
+
 ```
 git status -s
 git status -s -b // s: silent, b: branch
 ```
-// Cuando se pone un solo `-` significa que cada letra a continuación es un comando independiente.
-
--<letra><letra>... 
 
 ## Creando alias para nuestros comandos
 
@@ -149,7 +150,7 @@ git config -- global -e
 
 + Muestra cambios entre el último commit y el momento actual.
 
-Para verificar cambios si los archivos estan en STAGE.
+Para verificar cambios si los archivos estan en `STAGE`.
 ```
 git diff --staged
 ```
@@ -159,28 +160,27 @@ git diff --staged
 git reset HEAD <nombre_archivo>
 
 ```
+## git commit 
 
-## Enviar archivos al STAGE y hacer push en un solo comando
-
+Enviar archivos al `STAGE` y hacer push en un solo comando:
 ```
 git commit -am <message>
 ```
-
-## Actualizar un commit
+Actualizar un commit:
 ```
 git commit --amend -m <new_message>
 ```
 
 ## git reset
 
-HEAD^: Apunta al commit anterior al último.
+`HEAD^`: Apunta al penúltimo commit.
 Deje en el penultimo commit sin eliminar los cambios. Deja los cambios fuera del STAGE.
 ```
 git reset --soft HEAD^
 git reset --soft <id_commit>^
 ```
 
-mixed: comando por defecto si no añadieramos un flag.
+`--mixed`: comando por defecto si no añadieramos un flag.
 Nos movemos a un punto en el tiempo.
 Archivos son quitados del stage pero aun contienen las modificaciones.
 ```
