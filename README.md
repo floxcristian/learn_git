@@ -1,6 +1,9 @@
-<h1>Entendiendo Git</h1>
+<h1 align="center">Entendiendo Git</h1>
 
 <img src="https://miro.medium.com/max/5000/0*a2jcqSzpTl6HQp35">
+
+# Tabla de Contenido
+
 
 # 1. Introducción
 
@@ -13,16 +16,16 @@ Muestra la
 + rama actual.
 + archivos en el stage.
 + archivos que no están en el stage ()
-```
+```bash
 git status
 ```
 
 Agrego archivos para que este pendiente de sus cambios.
-```
+```bash
 git add .
 ```
 Sube los cambios al repositorio distribuido.
-```
+```bash
 git commit -m "message"
 ```
 
@@ -46,26 +49,39 @@ Muestra:
 ## 4.3. git add 
 
 + Prepara cambios para enviarlos al repositorio: envía archivos al `STAGE`.
++ Existen diferentes formas. Lo ideal es que cada commit responda a algo específico.
 
-## Diferentes formas de enviar archivos al STAGE
-
-Lo ideal es que cada commit responda a algo específico.
+```bash
+git add .
+git add -A
+git add -u
+git add *
+git add -all
 ```
-git add . // git add -all // git add -A  // Agrega todos los archivos
-git add *.png // Agrega todos los archivos .png del directorio actual
-git add "*.png" // Agrega todos los archivos .png de todo el proyecto
-git add index.html config.ts // Agrega un listado de archivos
-git add pdfs/*.pdf // Agrega todos los archivos .pdf de la carpeta pdfs
-git add pdfs/ // Agrega todos los archivos de la carpeta pdfs
+
+|   | Archivos nuevos | Archivos modificados | Archivos eliminados |
+|-- |--|--|--|
+| git add -A | - | - | - | 
+
+
+https://stackoverflow.com/questions/26042390/git-add-asterisk-vs-git-add-period
+
+```bash
+git add . # git add -all // git add -A  // Agrega todos los archivos
+git add *.png # Agrega todos los archivos .png del directorio actual
+git add "*.png" # Agrega todos los archivos .png de todo el proyecto
+git add index.html config.ts # Agrega un listado de archivos
+git add pdfs/*.pdf # Agrega todos los archivos .pdf de la carpeta pdfs
+git add pdfs/ # Agrega todos los archivos de la carpeta pdfs
 
 git commit -m "agregando imagenes png"
 
 git add css/
 git commit -m "agrengando CSS"
 
-// agregar todos y luego excluir uno
-git add -A // igual a git add .??
-git reset *.xml // excluye todos los archivos xml
+# agregar todos y luego excluir uno
+git add -A # igual a git add .??
+git reset *.xml # excluye todos los archivos xml
 ```
 
 ## Crea registro histórico
@@ -75,7 +91,7 @@ Crea registro histórico con archivos en el stage.
 ## git checkout
 
 Permite revertir cambios dejándo el proyecto según el último commit realizado.
-```
+```bash
 git checkout -- .
 git checkout -- <nombre_archivo>
 ```
@@ -83,10 +99,10 @@ git checkout -- <nombre_archivo>
 
 Muestra el historial de cambios desde lo mas reciente a lo mas antiguo.
 
-```
-git log // todo el historial
-git log --oneline // historial de forma resumida
-git log --oneline --decorate --all --graph // decorate y graph permite mostrar arbol graficamente
+```bash
+git log # todo el historial
+git log --oneline # historial de forma resumida
+git log --oneline --decorate --all --graph # decorate y graph permite mostrar arbol graficamente
 git log -- <file_name>
 git log --follow <file_name>
 ```
@@ -108,7 +124,7 @@ Ejemplo:
 
 -<letra><letra>... 
 
-```
+```bash
 git status -s
 git status -s -b // s: silent, b: branch
 ```
@@ -116,22 +132,22 @@ git status -s -b // s: silent, b: branch
 ## Creando alias para nuestros comandos
 
 Podemos añadir alias a la configuración de git.
-```
-git config --global alias.l "log --oneline --decorate --all" // 'lg' es el shortcut
+```bash
+git config --global alias.l "log --oneline --decorate --all" # 'l' es el shortcut
 git config --global alias.s "status -s -b"
 ```
-```
+```bash
 git config --global core.editor nano
 git config --list
 ```
 
-```
+```bash
 git status -sb = git status -s -b
 ```
 
-```
-// comando visto en instagram:
-// Usado cuando intento psuhear algo y me doi cuenta que ha habido cambios en el flujo principal
+```bash
+# comando visto en instagram:
+# Usado cuando intento psuhear algo y me doi cuenta que ha habido cambios en el flujo principal
 alias repush="git pull --rebase && git push"
 alias repush="git push -f"
 
@@ -154,7 +170,7 @@ Para verificar cambios si los archivos estan en `STAGE`.
 ```
 git diff --staged
 ```
-## Sacar archivos de STAGE
+## Sacar archivos del STAGE
 
 ```
 git reset HEAD <nombre_archivo>
