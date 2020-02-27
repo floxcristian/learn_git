@@ -4,9 +4,69 @@
 
 # Tabla de Contenido
 
+- [1. Sobre el Control de Versiones](#)
+    - [1.1. Instalación de Git](#)
+    - [1.2. Configurando Git por primera vez](#)
 
-# 1. Introducción
 
+# 1. Configurando Git por primera vez
+
+Vamos a personalizar nuestro entorno y será necesario hacer estas cosas solo una vez. Puedes cambiar la configuración después ejecutando los comandos correspondientes.
+
+`git config` permite obtener y establecer variables de configuración que controlan el aspecto y funcionamiento de Git.
+
+Estas variables pueden almacenarse en 3 lugares:
+
+1. `/etc/gitconfig`: contiene la configuración para todos los usuarios del sistema y todos sus repositorios. 
+    - Si pasamos el flag `--system` a `git config`, lee y escribe en este archivo.
+    ```bash
+    git config --system -l ## ver los valores del archivo
+    git config --system -e ## editar el archivo
+    ```
+2. `~/.gitconfig` o `~/.config/git/config`: configuración de tu usuario. 
+    -  Si pasamos el flag `--global` a `git config`, lee y escribe en este archivo.
+    ```bash
+    git config --global -l ## ver los valores del archivo
+    git config --global -e ## editar el archivo
+    ```
+3. `.git/config`: configuración del repositorio actual.
+
+Cada nivel sobrescribe los valores del nivel anterior, por lo que los valores de `.git/config`[3] tienen preferencia sobre los de `/etc/gitconfig`[1].
+
+## 1.1. Estableciendo nuestro editor
+
+Por ejemplo, en el archivo de configuración `--system` esta establecido el editor que selecionamos durante la instalación de Git y esta configuración afecta a todos los usuarios del sistema. Podríamos establecer otro editor en la configuración `--global` para que afecte solo a nuestro usuario del sistema. En este caso estableceremos **VSCode** como editor:
+```bash
+git config --global core.editor code
+```
+## 1.2. Estableciendo alias para nuestros comandos
+
+Podemos añadir alias a la configuración de git.
+```bash
+git config --global alias.l "log --oneline --decorate --all" # 'l' es el shortcut
+git config --global alias.s "status -s -b"
+```
+
+---
+## Añadiendo flags
+
+Cuando se antepone `--` es porque a continuación viene una palabra.
+
+--<palabra> 
+
+Ejemplo:
+
+// Cuando se pone un solo `-` significa que cada letra a continuación es un comando independiente.
+
+-<letra><letra>... 
+
+```bash
+git status -s
+git status -s -b // s: silent, b: branch
+```
+
+
+---
 
 
 # 3. Configuración
@@ -111,35 +171,6 @@ HEAD: último commit en la rama actual
 rama actual
 Autor
 fecha
-
-## Añadiendo flags
-
-Cuando se antepone `--` es porque a continuación viene una palabra.
-
---<palabra> 
-
-Ejemplo:
-
-// Cuando se pone un solo `-` significa que cada letra a continuación es un comando independiente.
-
--<letra><letra>... 
-
-```bash
-git status -s
-git status -s -b // s: silent, b: branch
-```
-
-## Creando alias para nuestros comandos
-
-Podemos añadir alias a la configuración de git.
-```bash
-git config --global alias.l "log --oneline --decorate --all" # 'l' es el shortcut
-git config --global alias.s "status -s -b"
-```
-```bash
-git config --global core.editor nano
-git config --list
-```
 
 ```bash
 git status -sb = git status -s -b
