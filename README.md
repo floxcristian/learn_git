@@ -39,13 +39,50 @@ Por ejemplo, en el archivo de configuración `--system` esta establecido el edit
 ```bash
 git config --global core.editor code
 ```
-## 1.2. Estableciendo alias para nuestros comandos
+## 1.2. Estableciendo nuestra identidad
+
+Lo primero que deberás hacer cuando instales Git es establecer tu nombre y email. Esto es importante porque esta información es
+introducida de manera inmutable en los commits que envías:
+```bash
+git config --global user.name "Cristian Flores"
+git config --global user.email cristianflores.ee@gmail.com
+```
+Si quieres sobrescribir esta información con otro nombre o email para proyectos específicos, puedes ejecutar el comando sin la opción `--global` cuando estés en ese proyecto.
+```bash
+git config user.name "Andrés"
+```
+## 1.3. Estableciendo alias para nuestros comandos
 
 Podemos añadir alias a la configuración de Git.
 ```bash
 git config --global alias.l "log --oneline --decorate --all" # 'l' es el shortcut
 git config --global alias.s "status -s -b"
 ```
+
+## 1.4. Comprobando nuestra configuración
+
+Si quieres comprobar tu configuración, puedes usar el comando `git config --list` para mostrar todas las propiedades que Git ha configurado:
+```bash
+$ git config --list
+user.name=Cristian Flores
+user.email=cristianflores.ee@gmail.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...
+```
+
+Puede que veas claves repetidas, porque Git lee la misma clave de distintos archivos (/etc/gitconfig y ~/.gitconfig, por ejemplo). En estos casos, Git usa el último valor para cada clave única que ve.
+
+También puedes comprobar el valor que Git utilizará para una clave específica ejecutando `git config <key>`:
+```bash
+$ git config user.name
+Cristian Flores
+```
+
+
+
 # 2. Fundamentos de Git
 
 ## 2.1. Los 3 estados
