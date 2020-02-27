@@ -2,14 +2,12 @@
 
 <img src="https://miro.medium.com/max/5000/0*a2jcqSzpTl6HQp35">
 
-# Tabla de Contenido
+## Tabla de Contenido
 
-- [1. Sobre el Control de Versiones](#)
-    - [1.1. Instalación de Git](#)
-    - [1.2. Configurando Git por primera vez](#)
+- [1. Configurando Git](#)
+- [2. Fundamentos de Git](#)
 
-
-# 1. Configurando Git por primera vez
+# 1. Configurando Git
 
 Vamos a personalizar nuestro entorno y será necesario hacer estas cosas solo una vez. Puedes cambiar la configuración después ejecutando los comandos correspondientes.
 
@@ -19,19 +17,21 @@ Estas variables pueden almacenarse en 3 lugares:
 
 1. `/etc/gitconfig`: contiene la configuración para todos los usuarios del sistema y todos sus repositorios. 
     - Si pasamos el flag `--system` a `git config`, lee y escribe en este archivo.
+        - Ejemplo:
     ```bash
-    git config --system -l ## ver los valores del archivo
-    git config --system -e ## editar el archivo
+    git config --system -l ## ver los valores del archivo (-l: --list)
+    git config --system -e ## editar el archivo (-e: --?)
     ```
 2. `~/.gitconfig` o `~/.config/git/config`: configuración de tu usuario. 
     -  Si pasamos el flag `--global` a `git config`, lee y escribe en este archivo.
+        - Ejemplo:
     ```bash
     git config --global -l ## ver los valores del archivo
     git config --global -e ## editar el archivo
     ```
 3. `.git/config`: configuración del repositorio actual.
 
-Cada nivel sobrescribe los valores del nivel anterior, por lo que los valores de `.git/config`[3] tienen preferencia sobre los de `/etc/gitconfig`[1].
+Cada nivel sobrescribe los valores del nivel anterior, por lo que los valores de `.git/config[3]` tienen preferencia sobre los de `/etc/gitconfig[1]`.
 
 ## 1.1. Estableciendo nuestro editor
 
@@ -41,11 +41,37 @@ git config --global core.editor code
 ```
 ## 1.2. Estableciendo alias para nuestros comandos
 
-Podemos añadir alias a la configuración de git.
+Podemos añadir alias a la configuración de Git.
 ```bash
 git config --global alias.l "log --oneline --decorate --all" # 'l' es el shortcut
 git config --global alias.s "status -s -b"
 ```
+# 2. Fundamentos de Git
+
+## 2.1. Los 3 estados
+
+Estados en los que se pueden encontrar tus archivos:
+1. **commited:** almacenado de manera segura en tu db local.
+2. **modified:** modificado pero todavía no confirmado a tu db local.
+3. **staged:** marcado para que se vaya en tu próximo commit.
+
+Secciones de un proyecto Git:
+1. **git directory:** almacena metadatos y db para tu proyecto. Es lo que se copia cuando clonas un repositorio.
+2. **working directory:** copia de una versión del proyecto. Esta se saca de la db comprimida en el `git directory`, y se coloca en disco para poder usarla.
+3. **staging area:** archivo en tu `git directory`, que almacena info de lo que irá en tu próximo commit.
+
+El flujo de trabajo básico en Git sería algo como:
+1. Modificas archivos en tu `working directory`.
+2. Preparas los archivos añadiendolos al `staging area`.
+3. Confirmas los cambios, lo que toma los archivos tal como están en el `staging area` y los almacena de manera permanente en tu `git directory`.
+
+<img src="https://i.imgur.com/7i9c2UK.png">
+
+Adicionalmente:
++ Si una versión concreta de un archivo está en el `git directory` se considera `commited`.
++ Si se ha modificado desde que se obtuvo del repo, pero ha sido añadida al `staging area`, está `staged`.
++ Si se ha modificado desde que se obtuvo del repo, pero no se ha añadido al `staging area`, está  `modified`.
+
 
 ---
 ## Añadiendo flags
