@@ -141,7 +141,7 @@ git clone <URL>
 Ejemplo:
 
 ```bash
-$ git clone https://github.com/floxcristian/learn_git
+git clone https://github.com/floxcristian/learn_git
 ```
 Este comando crea un directorio `learn_git` y un subdirectorio `.git`, descarga toda la información del repositorio y envía una copia al `working directory` de la última versión.
 
@@ -153,7 +153,22 @@ git clone https://github.com/floxcristian/learn_git my_repo
 ```
 # 3. Guardando cambios en el repositorio
 
+Vamos a realizar cambios y confirmar instantáneas de esos cambios en el repositorio cada vez que se alcance un estado que queramos conservar.
+
+Cada archivo del repositorio puede tener 2 estados:
++ **tracked:** archivos que estaban en la última instantánea del proyecto. Pueden ser archivos sin modificar, modificados, o preparados (`staged`).
++ **untracked:** archivos en el `working directory` que no estaban en la última instantánea y no están en el `staging area`.
+
+Ciclo de vida del estado de tus archivos:
++ Cuando clonas un repositorio todos los archivos estarán `tracked` y sin modificar. 
++ Mientras editas, Git los ve como modificados (han sido cambiados desde su último commit).
++ Luego preparas estos archivos modificados (`git add`) y finalmente confirmas (`git add`) todos los cambios preparados (`staged`).
+
+<img src="https://i.imgur.com/FaLksEv.png">
+
 ## 3.1. Revisando el estado de tus archivos
+
+El comando `git status` nos permite determinar en que estado se encuentran nuestros archivos.
 
 ## 3.2. Rastrear archivos nuevos
 
