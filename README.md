@@ -81,7 +81,20 @@ $ git config user.name
 Cristian Flores
 ```
 
+## 1.5. Obteniendo ayuda
 
+Existen 3 formas de ver la página del manual para cualquier comando de Git:
+```bash
+$ git help <verb>
+$ git <verb> --help
+$ man git-<verb>
+```
+Por ejemplo, puedes ver la página del manual para el comando `config` ejecutando:
+```bash
+git help config
+```
++ Puedes acceder a los manuales incluso sin conexión.
++ Si necesitas que te ayude una persona puedes probar en canales de slack o IRC.
 
 # 2. Fundamentos de Git
 
@@ -108,6 +121,43 @@ Adicionalmente:
 + Si una versión concreta de un archivo está en el `git directory` se considera `commited`.
 + Si se ha modificado desde que se obtuvo del repo, pero ha sido añadida al `staging area`, está `staged`.
 + Si se ha modificado desde que se obtuvo del repo, pero no se ha añadido al `staging area`, está  `modified`.
+
+# 2. Obteniendo un repositorio
+
+## 2.1. Inicializando un repositorio
+Si deseas iniciar el seguimiento de un proyecto con Git, debes dirigirte al directorio del proyecto y ejecutar:
+```bash
+git init
+```
+
+Esto creará un subdirectorio `.git` que contiene todos los archivos necesarios del repositorio, entre ellos una db comprimida.
+
+## 2.2. Clonando un repositorio
+
+El comando `git clone` nos permite descargar el repositorio con cada una de las versiones del proyecto.
+```bash
+git clone <URL>
+```
+Ejemplo:
+
+```bash
+$ git clone https://github.com/floxcristian/learn_git
+```
+Este comando crea un directorio `learn_git` y un subdirectorio `.git`, descarga toda la información del repositorio y envía una copia al `working directory` de la última versión.
+
+De este manera, si el servidor se cae o tiene algun inconveniente, puedes usar cualquiera de los clones para devolver el servidor al estado en el que estaba cuando fue clonado.
+
+Para especificar un nombre distinto al del repositorio puedes ejecutar algo como lo siguiente:
+```bash
+git clone https://github.com/floxcristian/learn_git my_repo
+```
+# 3. Guardando cambios en el repositorio
+
+## 3.1. Revisando el estado de tus archivos
+
+## 3.2. Rastrear archivos nuevos
+
+## 3.3. Ignorar archivos
 
 
 ---
