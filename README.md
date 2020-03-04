@@ -16,14 +16,14 @@ Vamos a personalizar nuestro entorno y será necesario hacer estas cosas solo un
 Estas variables pueden almacenarse en 3 lugares:
 
 1. `/etc/gitconfig`: contiene la configuración para todos los usuarios del sistema y todos sus repositorios. 
-    - Si pasamos el flag `--system` a `git config`, lee y escribe en este archivo.
+    - Si pasamos el flag `--system` a `git config`, leerá y escribirá en este archivo.
         - Ejemplo:
     ```bash
     git config --system -l ## ver los valores del archivo (-l: --list)
     git config --system -e ## editar el archivo (-e: --?)
     ```
 2. `~/.gitconfig` o `~/.config/git/config`: configuración de tu usuario. 
-    -  Si pasamos el flag `--global` a `git config`, lee y escribe en este archivo.
+    -  Si pasamos el flag `--global` a `git config`, leerá y escribirá en este archivo.
         - Ejemplo:
     ```bash
     git config --global -l ## ver los valores del archivo
@@ -41,13 +41,12 @@ git config --global core.editor code
 ```
 ## 1.2. Estableciendo nuestra identidad
 
-Lo primero que deberás hacer cuando instales Git es establecer tu nombre y email. Esto es importante porque esta información es
-introducida de manera inmutable en los commits que envías:
+Lo primero que debemos hacer cuando instalamos Git es establecer nuestro nombre y email. Esto es importante porque esta información es introducida de manera inmutable en los commits que envíamos:
 ```bash
 git config --global user.name "Cristian Flores"
 git config --global user.email cristianflores.ee@gmail.com
 ```
-Si quieres sobrescribir esta información con otro nombre o email para proyectos específicos, puedes ejecutar el comando sin la opción `--global` cuando estés en ese proyecto.
+Si queremos sobrescribir esta información con otro nombre o email para proyectos específicos, podemos ejecutar el comando sin la opción `--global` cuando estemos en ese proyecto.
 ```bash
 git config user.name "Andrés"
 ```
@@ -61,7 +60,7 @@ git config --global alias.s "status -s -b"
 
 ## 1.4. Comprobando nuestra configuración
 
-Si quieres comprobar tu configuración, puedes usar el comando `git config --list` para mostrar todas las propiedades que Git ha configurado:
+Si queremos comprobar nuestra configuración, podemos usar el comando `git config --list` para mostrar todas las propiedades que Git ha configurado:
 ```bash
 $ git config --list
 user.name=Cristian Flores
@@ -73,7 +72,7 @@ color.diff=auto
 ...
 ```
 
-Puede que veas claves repetidas, porque Git lee la misma clave de distintos archivos (/etc/gitconfig y ~/.gitconfig, por ejemplo). En estos casos, Git usa el último valor para cada clave única que ve.
+Puede que veamos claves repetidas, porque Git lee la misma clave de distintos archivos (/etc/gitconfig y ~/.gitconfig, por ejemplo). En estos casos, Git usa el último valor para cada clave única que ve.
 
 También puedes comprobar el valor que Git utilizará para una clave específica ejecutando `git config <key>`:
 ```bash
@@ -85,9 +84,9 @@ Cristian Flores
 
 Existen 3 formas de ver la página del manual para cualquier comando de Git:
 ```bash
-$ git help <verb>
-$ git <verb> --help
-$ man git-<verb>
+$ git help <VERB>
+$ git <VERB> --help
+$ man git-<VERB>
 ```
 Por ejemplo, puedes ver la página del manual para el comando `config` ejecutando:
 ```bash
@@ -170,7 +169,35 @@ Ciclo de vida del estado de tus archivos:
 
 El comando `git status` nos permite determinar en que estado se encuentran nuestros archivos.
 
++ Si ejecutaramos este comando inmediatamente después de clonar un repositorio:
+```bash
+$ git status
+On branch master ## rama en que estamos. 'master' es la rama por defecto
+nothing to commit, working directory clean ## no hay archivos rastreados y modificados
+```
+
++ Supongamos que añadimos un nuevo archivo. Si ejecutas `git status` verás el archivo sin rastrear:
+```bash
+$ git status
+On branch master
+Untracked files:
+...
+```
++ `Sin rastrear` significa que Git ve archivos que no teníamos en el `commit` anterior.
++ Git no los incluirá en el próximo `commit` a menos que se le indique explicítamente.
++ Si desearas incluirlo, debes comenzar a rastrearlo.
+
 ## 3.2. Rastrear archivos nuevos
+
+Para comenzar a rastrear un archivo se debe utilizar `git add`. 
+
++ Si queremos rastrear un archivo llamado `README`:
+```bash
+$ git add README
+```
+
+Si vuelves a ver el estado del proyecto, verás que el archivo `README` esta siendo rastreado y esta preparado para ser confirmado.
+
 
 ## 3.3. Ignorar archivos
 
