@@ -9,58 +9,56 @@
 
 # 1. Configurando Git
 
-Vamos a personalizar nuestro entorno y será necesario hacer estas cosas solo una vez. Puedes cambiar la configuración después ejecutando los comandos correspondientes.
+Vamos a personalizar nuestro entorno y será necesario hacerlo solo una vez. Se puede cambiar la configuración después ejecutando los comandos correspondientes.
 
 `git config` permite obtener y establecer variables de configuración que controlan el aspecto y funcionamiento de Git.
 
 Estas variables pueden almacenarse en 3 lugares:
 
-1. `/etc/gitconfig`: contiene la configuración para todos los usuarios del sistema y todos sus repositorios. 
-    - Si pasamos el flag `--system` a `git config`, leerá y escribirá en este archivo.
-        - Ejemplo:
+1. `/etc/gitconfig`: archivo de configuración de todos los usuarios del sistema. 
+    - Usamos `git config --system` para leer o modificar este archivo:
     ```bash
     git config --system -l ## ver los valores del archivo (-l: --list)
     git config --system -e ## editar el archivo (-e: --?)
     ```
-2. `~/.gitconfig` o `~/.config/git/config`: configuración de tu usuario. 
-    -  Si pasamos el flag `--global` a `git config`, leerá y escribirá en este archivo.
-        - Ejemplo:
+2. `~/.gitconfig` o `~/.config/git/config`: archivo de configuración del usuario actual del sistema. 
+    -  Usamos `git config --global` para leer o modificar este archivo:
     ```bash
     git config --global -l ## ver los valores del archivo
     git config --global -e ## editar el archivo
     ```
-3. `.git/config`: configuración del repositorio actual.
+3. `.git/config`: archivo de configuración del repositorio actual.
 
 Cada nivel sobrescribe los valores del nivel anterior, por lo que los valores de `.git/config[3]` tienen preferencia sobre los de `/etc/gitconfig[1]`.
 
 ## 1.1. Estableciendo nuestro editor
 
-Por ejemplo, en el archivo de configuración `--system` esta establecido el editor que selecionamos durante la instalación de Git y esta configuración afecta a todos los usuarios del sistema. Podríamos establecer otro editor en la configuración `--global` para que afecte solo a nuestro usuario del sistema. En este caso estableceremos **VSCode** como editor:
+Por ejemplo, en el archivo de configuración `--system` está establecido el editor que selecionamos durante la instalación de Git y esta configuración afecta a todos los usuarios del sistema. Podríamos establecer otro editor en la configuración `--global` para que afecte solo a nuestro usuario de sistema. En este caso estableceremos **VSCode** como editor:
 ```bash
 git config --global core.editor code
 ```
 ## 1.2. Estableciendo nuestra identidad
 
-Lo primero que debemos hacer cuando instalamos Git es establecer nuestro nombre y email. Esto es importante porque esta información es introducida de manera inmutable en los commits que envíamos:
+Lo primero que debemos hacer cuando instalamos Git es establecer nuestro nombre y email. Esto es importante porque esta información es introducida en los commits que envíamos.
 ```bash
 git config --global user.name "Cristian Flores"
 git config --global user.email cristianflores.ee@gmail.com
 ```
-Si queremos sobrescribir esta información con otro nombre o email para proyectos específicos, podemos ejecutar el comando sin la opción `--global` cuando estemos en ese proyecto.
+Para sobrescribir esta información en proyectos específicos, debemos ejecutar el comando sin el flag `--global` estando en el proyecto a configurar.
 ```bash
 git config user.name "Andrés"
 ```
 ## 1.3. Estableciendo alias para nuestros comandos
 
-Podemos añadir alias a la configuración de Git.
+Podemos añadir alias en la configuración.
 ```bash
-git config --global alias.l "log --oneline --decorate --all" # 'l' es el shortcut
-git config --global alias.s "status -s -b"
+git config --global alias.l "log --oneline --decorate --all" # 'l' es el alias
+git config --global alias.s "status -s -b" # 's' es el alias
 ```
 
 ## 1.4. Comprobando nuestra configuración
 
-Si queremos comprobar nuestra configuración, podemos usar el comando `git config --list` para mostrar todas las propiedades que Git ha configurado:
+Podemos usar el comando `git config --list` para mostrar todas las propiedades que Git ha configurado.
 ```bash
 $ git config --list
 user.name=Cristian Flores
@@ -72,9 +70,9 @@ color.diff=auto
 ...
 ```
 
-Puede que veamos claves repetidas, porque Git lee la misma clave de distintos archivos (/etc/gitconfig y ~/.gitconfig, por ejemplo). En estos casos, Git usa el último valor para cada clave única que ve.
+Puede que veamos claves repetidas porque Git lee la misma clave de distintos archivos (por ejemplo, `/etc/gitconfig` y `~/.gitconfig`). En estos casos, Git usa el último valor para cada clave única que ve.
 
-También puedes comprobar el valor que Git utilizará para una clave específica ejecutando `git config <key>`:
+Para comprobar el valor que Git utilizará en una clave específica ejecutamos `git config <KEY>`:
 ```bash
 $ git config user.name
 Cristian Flores
@@ -82,32 +80,31 @@ Cristian Flores
 
 ## 1.5. Obteniendo ayuda
 
-Existen 3 formas de ver la página del manual para cualquier comando de Git:
+Existen 3 formas de ver la página del manual para cualquier comando:
 ```bash
 $ git help <VERB>
 $ git <VERB> --help
 $ man git-<VERB>
 ```
-Por ejemplo, puedes ver la página del manual para el comando `config` ejecutando:
+Ejemplo:
 ```bash
 git help config
 ```
-+ Puedes acceder a los manuales incluso sin conexión.
-+ Si necesitas que te ayude una persona puedes probar en canales de slack o IRC.
+Podemos acceder a los manuales incluso sin conexión a internet.
 
 # 2. Fundamentos de Git
 
 ## 2.1. Los 3 estados
 
-Estados en los que se pueden encontrar tus archivos:
-1. **commited:** almacenado de manera segura en tu db local.
-2. **modified:** modificado pero todavía no confirmado a tu db local.
-3. **staged:** marcado para que se vaya en tu próximo commit.
+Estados en los que se pueden encontrar nuestros archivos:
+1. **commited:** almacenado de manera segura en nuestra db local.
+2. **modified:** modificado pero todavía no confirmado a nuestra db local.
+3. **staged:** marcado para que se vaya en el próximo commit.
 
 Secciones de un proyecto Git:
-1. **git directory:** almacena metadatos y db para tu proyecto. Es lo que se copia cuando clonas un repositorio.
+1. **git directory (.git):** almacena metadatos y db para nuestro proyecto. Es lo que se copia cuando clonamos un repositorio.
 2. **working directory:** copia de una versión del proyecto. Esta se saca de la db comprimida en el `git directory`, y se coloca en disco para poder usarla.
-3. **staging area:** archivo en tu `git directory`, que almacena info de lo que irá en tu próximo commit.
+3. **staging area:** archivo en tu `git directory`, que almacena info de lo que irá en nuestro próximo commit.
 
 El flujo de trabajo básico en Git sería algo como:
 1. Modificas archivos en tu `working directory`.
@@ -124,7 +121,7 @@ Adicionalmente:
 # 2. Obteniendo un repositorio
 
 ## 2.1. Inicializando un repositorio
-Si deseas iniciar el seguimiento de un proyecto con Git, debes dirigirte al directorio del proyecto y ejecutar:
+Para iniciar el seguimiento de un proyecto con Git, debemos dirigirnos al directorio del proyecto y ejecutar:
 ```bash
 git init
 ```
@@ -144,9 +141,9 @@ git clone https://github.com/floxcristian/learn_git
 ```
 Este comando crea un directorio `learn_git` y un subdirectorio `.git`, descarga toda la información del repositorio y envía una copia al `working directory` de la última versión.
 
-De este manera, si el servidor se cae o tiene algun inconveniente, puedes usar cualquiera de los clones para devolver el servidor al estado en el que estaba cuando fue clonado.
+De este manera, si el servidor se cae o tiene algun inconveniente, podemos usar cualquiera de los clones para devolver el servidor al estado en el que estaba cuando fue clonado.
 
-Para especificar un nombre distinto al del repositorio puedes ejecutar algo como lo siguiente:
+Para especificar un nombre distinto al del repositorio:
 ```bash
 git clone https://github.com/floxcristian/learn_git my_repo
 ```
@@ -161,7 +158,7 @@ Cada archivo del repositorio puede tener 2 estados:
 Ciclo de vida del estado de tus archivos:
 + Cuando clonas un repositorio todos los archivos estarán `tracked` y sin modificar. 
 + Mientras editas, Git los ve como modificados (han sido cambiados desde su último commit).
-+ Luego preparas estos archivos modificados (`git add`) y finalmente confirmas (`git add`) todos los cambios preparados (`staged`).
++ Luego preparas estos archivos modificados (`git add`) y finalmente confirmas (`git commit`) todos los cambios preparados (`staged`).
 
 <img src="https://i.imgur.com/FaLksEv.png">
 
@@ -176,7 +173,7 @@ On branch master ## rama en que estamos. 'master' es la rama por defecto
 nothing to commit, working directory clean ## no hay archivos rastreados y modificados
 ```
 
-+ Supongamos que añadimos un nuevo archivo. Si ejecutas `git status` verás el archivo sin rastrear:
++ Supongamos que añadimos un nuevo archivo. Al ejecutar `git status` veríamos el archivo sin rastrear:
 ```bash
 $ git status
 On branch master
@@ -184,19 +181,19 @@ Untracked files:
 ...
 ```
 + `Sin rastrear` significa que Git ve archivos que no teníamos en el `commit` anterior.
-+ Git no los incluirá en el próximo `commit` a menos que se le indique explicítamente.
-+ Si desearas incluirlo, debes comenzar a rastrearlo.
++ Git no los incluirá en el próximo `commit` a menos que se le indique explicítamente (`git add`).
++ Si desearas incluirlo, debes comenzar a rastrearlo (`git add`).
 
 ## 3.2. Rastrear archivos nuevos
 
-Para comenzar a rastrear un archivo se debe utilizar `git add`. 
+Para comenzar a rastrear un archivo: `git add`. 
 
 + Si queremos rastrear un archivo llamado `README`:
 ```bash
 $ git add README
 ```
 
-Si vuelves a ver el estado del proyecto, verás que el archivo `README` esta siendo rastreado y esta preparado para ser confirmado.
++ Al ver el estado del proyecto, el archivo `README` esta siendo **rastreado** y esta **preparado** para ser confirmado.
 
 
 ## 3.3. Ignorar archivos
