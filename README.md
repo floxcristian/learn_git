@@ -429,6 +429,14 @@ git reset --hard <id_commit>
 + Permite regresar a un punto a pesar de haber hecho un git reset.
 + Git siempre mantiene un registro de todo lo que sucede en el repositorio.
 
+
+Muestra el historial de lo que hemos hecho localmente desde clonamos el repositorio.
+Muestra clone, commits,
+Esto es más preciso que hacer git log, porque esta traerá todos los commits, no solo los locales, si no también los de compañeros 
+```bash
+git reflog
+```
+
 Aquí buscamos el id del punto al que queramos volver. Luego
 ```
 git reset --hard <id_commit>
@@ -509,3 +517,7 @@ Despliega un login para ingresar a nuestra cuenta de Github y subir el código.
 ```bash
 git push -u origin master
 ```
+
+## git blame
+
+Detalla cada línea de un archivo respecto a quién lo modifico y en que commit
