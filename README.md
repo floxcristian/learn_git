@@ -302,14 +302,24 @@ Crea registro histórico con archivos en el stage.
 
 ## git checkout
 
-Permite revertir cambios dejándo el proyecto según el último commit realizado.
+Permite revertir cambios dejándo el proyecto o archivo específico según el último commit realizado.
+
+
 ```bash
-git checkout -- .
-git checkout -- <nombre_archivo>
+git checkout -- . ## 
+git checkout -- <nombre_archivo> ## descarta los cambios de un archivo específico
 ```
+Permite cambiarme de rama
+git checkout my_branch
+
+## git branch
+ver ramas existentes y actual.
+
 ## git log
 
 Muestra el historial de cambios desde lo mas reciente a lo mas antiguo.
+Muestra todos los commits creados, el lugar en el que estamos `HEAD` y la rama actual `master`.
+Hay un hash para diferencias cada snapshot.
 
 ```bash
 git log # todo el historial
@@ -348,6 +358,13 @@ git config -- global -e
 ## git diff
 
 + Muestra cambios entre el último commit y el momento actual.
++ Muestra todos los cambios que realizamos en relación a lo que esta en el master remoto.
++ Para salir presiono `q`.
+
+```bash
+git diff README.md
+```
+
 
 Para verificar cambios si los archivos estan en `STAGE`.
 ```
@@ -356,20 +373,20 @@ git diff --staged
 
 git diff a fondo
 
-````md
+```
+- lineas eliminadas
++ lineas agregadas
 diff --git a/README.md b/README.md
 index af24015..57fc052 100644
 --- a/README.md
 +++ b/README.md
-```diff
-    @@ -227,7 +227,7 @@
-    Muestra la
-    + rama actual.
-    + archivos en el stage.
-    -+ archivos que no están en el stage ()
-    ++ archivos que no están en el stage.
+@@ -227,7 +227,7 @@
+Muestra la
++ rama actual.
++ archivos en el stage.
+-+ archivos que no están en el stage ()
+++ archivos que no están en el stage.
 ```
-````
 ## Sacar archivos del STAGE
 
 ```
@@ -478,3 +495,17 @@ https://try.github.io/
 https://github.com/pcottle/learnGitBranching
 https://datagoodie.com/blog/git-simple-tutorial-explanation-LEVEL-4/
 https://learngitbranching.js.org/
+
+## git remote
+
+Indica donde almacenaremos el código.
+```
+git remote add origin <URL>
+```
+
+## git push
+
+Despliega un login para ingresar a nuestra cuenta de Github y subir el código.
+```bash
+git push -u origin master
+```
