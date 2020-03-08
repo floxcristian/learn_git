@@ -227,7 +227,7 @@ git status -s -b // s: silent, b: branch
 Muestra la 
 + rama actual.
 + archivos en el stage.
-+ archivos que no están en el stage ()
++ archivos que no están en el stage.
 ```bash
 git status
 ```
@@ -353,6 +353,23 @@ Para verificar cambios si los archivos estan en `STAGE`.
 ```
 git diff --staged
 ```
+
+git diff a fondo
+
+````md
+diff --git a/README.md b/README.md
+index af24015..57fc052 100644
+--- a/README.md
++++ b/README.md
+```diff
+    @@ -227,7 +227,7 @@
+    Muestra la
+    + rama actual.
+    + archivos en el stage.
+    -+ archivos que no están en el stage ()
+    ++ archivos que no están en el stage.
+```
+````
 ## Sacar archivos del STAGE
 
 ```
