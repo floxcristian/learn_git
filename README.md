@@ -61,7 +61,7 @@ git config --global alias.s "status -s -b" # 's' es el alias
 Mostrar todas las propiedades que Git ha configurado:
 
 <pre>
-<b>$ git config --list</b>
+<b style="background-color: red">$ git config --list</b>
 user.name=Cristian Flores
 user.email=cristianflores.ee@gmail.com
 color.status=auto
