@@ -58,9 +58,10 @@ git config --global alias.s "status -s -b" # 's' es el alias
 
 ## 1.4. Comprobando nuestra configuración
 
-Podemos usar el comando `git config --list` para mostrar todas las propiedades que Git ha configurado.
-```bash
-$ git config --list
+Mostrar todas las propiedades que Git ha configurado:
+
+<pre>
+<b>$ git config --list</b>
 user.name=Cristian Flores
 user.email=cristianflores.ee@gmail.com
 color.status=auto
@@ -68,29 +69,29 @@ color.branch=auto
 color.interactive=auto
 color.diff=auto
 ...
-```
+</pre>
 
 Puede que veamos claves repetidas porque Git lee la misma clave de distintos archivos (por ejemplo, `/etc/gitconfig` y `~/.gitconfig`). En estos casos, Git usa el último valor para cada clave única que ve.
 
-Para comprobar el valor que Git utilizará en una clave específica ejecutamos `git config <KEY>`:
-```bash
-$ git config user.name
+Comprobar el valor que Git utilizará en una clave específica:
+<pre>
+$ git config <b>user.name</b>
 Cristian Flores
-```
+</pre>
 
 ## 1.5. Obteniendo ayuda
 
-Existen 3 formas de ver la página del manual para cualquier comando:
-```bash
-$ git help <VERB>
-$ git <VERB> --help
-$ man git-<VERB>
-```
-Ejemplo:
-```bash
-git help config
-```
-Podemos acceder a los manuales incluso sin conexión a internet.
+<pre>
+git help
+</pre>
+
+Obtener ayuda de un comando específico:
+<pre>
+$ git help <b>commit</b>
+$ git <b>commit</b> --help
+$ man git-<b>commit</b>
+</pre>
+
 
 # 2. Fundamentos de Git
 
@@ -121,32 +122,25 @@ Adicionalmente:
 # 2. Obteniendo un repositorio
 
 ## 2.1. Inicializando un repositorio
-Para iniciar el seguimiento de un proyecto con Git, debemos dirigirnos al directorio del proyecto y ejecutar:
-```bash
-git init
-```
 
-Esto creará un subdirectorio `.git` que contiene todos los archivos necesarios del repositorio, entre ellos una db comprimida.
+<pre>
+git init
+</pre>
 
 ## 2.2. Clonando un repositorio
 
-El comando `git clone` nos permite descargar el repositorio con cada una de las versiones del proyecto.
-```bash
-git clone <URL>
-```
-Ejemplo:
+<pre>
+git clone <b>https://github.com/floxcristian/learn_git</b>
+</pre>
 
-```bash
-git clone https://github.com/floxcristian/learn_git
-```
+
 Este comando crea un directorio `learn_git` y un subdirectorio `.git`, descarga toda la información del repositorio y envía una copia al `working directory` de la última versión.
 
-De este manera, si el servidor se cae o tiene algun inconveniente, podemos usar cualquiera de los clones para devolver el servidor al estado en el que estaba cuando fue clonado.
+Clonar un repositorio en una carpeta específica:
+<pre>
+git clone <b>https://github.com/floxcristian/learn_git my_repo</b>
+</pre>
 
-Para especificar un nombre distinto al del repositorio:
-```bash
-git clone https://github.com/floxcristian/learn_git my_repo
-```
 # 3. Guardando cambios en el repositorio
 
 Vamos a realizar cambios y confirmar instantáneas de esos cambios en el repositorio cada vez que se alcance un estado que queramos conservar.
@@ -164,7 +158,10 @@ Ciclo de vida del estado de tus archivos:
 
 ## 3.1. Revisando el estado de tus archivos
 
-El comando `git status` nos permite determinar en que estado se encuentran nuestros archivos.
+Determinar en que estado se encuentran nuestros archivos:
+<pre>
+git status
+</pre>
 
 + Si ejecutaramos este comando inmediatamente después de clonar un repositorio:
 ```bash
@@ -184,16 +181,57 @@ Untracked files:
 + Git no los incluirá en el próximo `commit` a menos que se le indique explicítamente (`git add`).
 + Si desearas incluirlo, debes comenzar a rastrearlo (`git add`).
 
+---
+
 ## 3.2. Rastrear archivos nuevos
 
-Para comenzar a rastrear un archivo: `git add`. 
++ Rastrear un archivo específico:
+<pre>
+git add <b>README.md</b>
+</pre>
++ Rastrear múltiples archivos:
+<pre>
+git add <b>index.html index.js</b>
+</pre>
++ Rastrear todos los archivos:
+<pre>
+git add .
+</pre> 
 
-+ Si queremos rastrear un archivo llamado `README`:
-```bash
-$ git add README
-```
+### 3.2.1. Estado abreviado
 
-+ Al ver el estado del proyecto, el archivo `README` esta siendo **rastreado** y esta **preparado** para ser confirmado.
+Ver cambios de forma compacta:
+<pre>
+git status --short
+git status -s
+</pre>
+
+> Al ver el estado del proyecto con `git status`, vemos que los archivos estan siendo **rastreados** y estan **preparados** para ser confirmados `changes to be commited`.
+
+<pre>
+  M  README
+M M  Rakefile
+A    lib/git.rb
+M    lib/simplegit.rb
+? ?  license.txt
+</pre>
+
+El estado aparece en 2 columnas.
+<pre>
+<b>izq:</b> preparado.
+<b>der:</b> sin preparar.
+</pre>
+Los estados pueden ser:
+<pre>
+<b>??:</b> no rastreados.
+<b>A:</b> preparados.
+<b>M:</b> modificados.
+</pre>
+
+Ejemplo: 
++ `README` esta modificado en el `working directory` pero no está preparado.
++ `lib/simplegit.rb` esta modificado y preparado.
++ `Rakefile` esta modificado, preparado y modificado otra vez, por lo que hay cambios preparados y sin preparar.
 
 
 ## 3.3. Ignorar archivos
@@ -520,4 +558,12 @@ git push -u origin master
 
 ## git blame
 
-Detalla cada línea de un archivo respecto a quién lo modifico y en que commit
+Detalla cada línea de un archivo respecto a quién lo modifico y en que commit.
+
+## git reset
+Sería lo contrario a git add. 
+
+Excluir un archivo de la lista de agregados.
+```bash
+git bash reset index.js
+```
