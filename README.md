@@ -39,22 +39,23 @@ git config --global core.editor code
 ```
 ## 1.2. Estableciendo nuestra identidad
 
-Lo primero que debemos hacer cuando instalamos Git es establecer nuestro nombre y email. Esto es importante porque esta información es introducida en los commits que envíamos.
-```bash
-git config --global user.name "Cristian Flores"
-git config --global user.email cristianflores.ee@gmail.com
-```
-Para sobrescribir esta información en proyectos específicos, debemos ejecutar el comando sin el flag `--global` estando en el proyecto a configurar.
-```bash
-git config user.name "Andrés"
-```
+<pre>
+$ git config --global user.name <b>"Cristian Flores"</b>
+$ git config --global user.email <b>cristianflores.ee@gmail.com</b>
+</pre>
+
+Sobrescribir información en proyectos específicos:
+<pre>
+$ git config user.name <b>"Andrés"</b>
+</pre>
+
 ## 1.3. Estableciendo alias para nuestros comandos
 
 Podemos añadir alias en la configuración.
-```bash
-git config --global alias.l "log --oneline --decorate --all" # 'l' es el alias
-git config --global alias.s "status -s -b" # 's' es el alias
-```
+<pre>
+$ git config --global <b>alias.l</b> "log --oneline --decorate --all" # 'l' es el alias
+$ git config --global <b>alias.s</b> "status -s -b" # 's' es el alias
+</pre>
 
 ## 1.4. Comprobando nuestra configuración
 
@@ -62,7 +63,7 @@ Mostrar todas las propiedades que Git ha configurado:
 
 <pre>
 <b>$ git config --list</b>
-<small>
+<i>
 user.name=Cristian Flores
 user.email=cristianflores.ee@gmail.com
 color.status=auto
@@ -70,14 +71,14 @@ color.branch=auto
 color.interactive=auto
 color.diff=auto
 ...
-</small>
+</i>
 </pre>
 
 Puede que veamos claves repetidas porque Git lee la misma clave de distintos archivos (por ejemplo, `/etc/gitconfig` y `~/.gitconfig`). En estos casos, Git usa el último valor para cada clave única que ve.
 
 Comprobar el valor que Git utilizará en una clave específica:
 <pre>
-<mark>$ git config <b>user.name</b></mark>
+$ git config <b>user.name</b>
 <i>Cristian Flores</i>
 </pre>
 
@@ -166,11 +167,13 @@ git status
 </pre>
 
 + Si ejecutaramos este comando inmediatamente después de clonar un repositorio:
-```bash
+<pre>
 $ git status
+<i>
 On branch master ## rama en que estamos. 'master' es la rama por defecto
 nothing to commit, working directory clean ## no hay archivos rastreados y modificados
-```
+</i>
+</pre>
 
 + Supongamos que añadimos un nuevo archivo. Al ejecutar `git status` veríamos el archivo sin rastrear:
 ```bash
@@ -272,10 +275,6 @@ Muestra la
 git status
 ```
 
-Agrego archivos para que este pendiente de sus cambios.
-```bash
-git add .
-```
 Sube los cambios al repositorio distribuido.
 ```bash
 git commit -m "message"
@@ -283,10 +282,6 @@ git commit -m "message"
 
 # 4. Comandos útiles
 
-## 4.1. git init
-
-+ Inicia un repositorio local.
-+ Crea una carpeta `.git` la cual contendrá el historial de todas las modificaciones que realicemos en el repositorio.
 
 ## 4.2. git status
 
