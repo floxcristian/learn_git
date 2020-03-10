@@ -61,7 +61,7 @@ git config --global alias.s "status -s -b" # 's' es el alias
 Mostrar todas las propiedades que Git ha configurado:
 
 <pre>
-<b style="background-color: red">$ git config --list</b>
+<b>$ git config --list</b>
 user.name=Cristian Flores
 user.email=cristianflores.ee@gmail.com
 color.status=auto
@@ -75,7 +75,7 @@ Puede que veamos claves repetidas porque Git lee la misma clave de distintos arc
 
 Comprobar el valor que Git utilizará en una clave específica:
 <pre>
-$ git config <b>user.name</b>
+<mark>$ git config <b>user.name</b></mark>
 Cristian Flores
 </pre>
 
