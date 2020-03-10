@@ -62,6 +62,7 @@ Mostrar todas las propiedades que Git ha configurado:
 
 <pre>
 <b>$ git config --list</b>
+<small>
 user.name=Cristian Flores
 user.email=cristianflores.ee@gmail.com
 color.status=auto
@@ -69,6 +70,7 @@ color.branch=auto
 color.interactive=auto
 color.diff=auto
 ...
+</small>
 </pre>
 
 Puede que veamos claves repetidas porque Git lee la misma clave de distintos archivos (por ejemplo, `/etc/gitconfig` y `~/.gitconfig`). En estos casos, Git usa el último valor para cada clave única que ve.
@@ -76,7 +78,7 @@ Puede que veamos claves repetidas porque Git lee la misma clave de distintos arc
 Comprobar el valor que Git utilizará en una clave específica:
 <pre>
 <mark>$ git config <b>user.name</b></mark>
-Cristian Flores
+<i>Cristian Flores</i>
 </pre>
 
 ## 1.5. Obteniendo ayuda
