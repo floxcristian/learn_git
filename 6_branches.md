@@ -1,4 +1,4 @@
-<h1>Trabajando con ramas</h1>
+<h1 align="center">Trabajando con ramas</h1>
 
 Ver ramas existentes indicando con un * la rama activa:
 <pre>
