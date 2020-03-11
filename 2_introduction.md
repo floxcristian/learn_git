@@ -32,6 +32,7 @@ Git utiliza una arquitectura de 3 niveles:
 2. **tree:** cada commit contiene un árbol donde se registran los nombres y rutas de los archivos cuando se hizo el commit.
 3. **blob:** para cada archivo del árbol hay un blob, que contiene la snapshot comprimida del archivo cuando se hizo el commit.
 
+<<<<<<< HEAD:2_introduction.md
 <img src="https://i.imgur.com/KosGd4Q.png">
 
 Flujo de trabajo
@@ -54,3 +55,6 @@ git add .
 git status
 
 git log
+=======
+<img src="https://i.imgur.com/KosGd4Q.png">
+>>>>>>> 60b94e8bfa92a79b9c01f7bb014ddf43cd12bfca:introduction.md
