@@ -72,10 +72,6 @@ Untracked files:
 + Git no los incluirá en el próximo `commit` a menos que se le indique explicítamente (`git add`).
 + Si desearas incluirlo, debes comenzar a rastrearlo (`git add`).
 
-
-
-
-
 > Al ver el estado del proyecto con `git status`, vemos que los archivos estan siendo **rastreados** y estan **preparados** para ser confirmados `changes to be commited`.
 
 <pre>
@@ -149,14 +145,6 @@ Ejemplo:
 
 
 ---
-
-
-
-Subir cambios al repositorio distribuido.
-```bash
-git commit -m "message"
-```
-
 
 ## 4.3. git add 
 

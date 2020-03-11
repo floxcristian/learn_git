@@ -35,7 +35,7 @@ Enviar archivos al `STAGE` y hacer push en un solo comando:
 $ git commit -am <b>"new commit"</b>
 </pre>
 
-Actualizar un commit:
+Actualizar el último commit (mensaje y cambios):
 <pre>
 $ git commit --amend -m <b>"my message"</b>
 </pre>

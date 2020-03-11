@@ -1,4 +1,4 @@
-<h1>Trabajando con ramas</h1>
+<h1 align="center">Trabajando con ramas</h1>
 
 Ver ramas existentes indicando con un * la rama activa:
 <pre>
@@ -18,6 +18,11 @@ $ git checkout <b>my_branch</b>
 Crear una rama y activarla en un solo paso:
 <pre>
 $ git checkout -b <b>my_branch</b>
+</pre>
+
+Eliminar una rama:
+<pre>
+git branch -d <b>my_branch</b>
 </pre>
 
 
