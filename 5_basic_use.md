@@ -30,7 +30,7 @@ $ git clone <b>https://github.com/floxcristian/learn_git my_repo</b>
 $ git commit -m <b>"initial commit"</b>
 </pre>
 
-Enviar archivos al `STAGE` y hacer push en un solo comando:
+Confirmar cambios y hacer push en un solo comando:
 <pre>
 $ git commit -am <b>"new commit"</b>
 </pre>

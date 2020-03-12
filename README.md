@@ -181,7 +181,7 @@ Crea registro histórico con archivos en el stage.
 
 # 9. Historial de versiones
 
-Historial de commits:
+Historial de commits de la rama actual:
 <pre>
 $ git log
 </pre>
