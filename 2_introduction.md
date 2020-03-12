@@ -33,3 +33,6 @@ Git utiliza una arquitectura de 3 niveles:
 3. **blob:** para cada archivo del árbol hay un blob, que contiene la snapshot comprimida del archivo cuando se hizo el commit.
 
 <img src="https://i.imgur.com/KosGd4Q.png">
+
+## Flujo de trabajo
+

@@ -183,33 +183,55 @@ Crea registro histórico con archivos en el stage.
 
 Historial de commits:
 <pre>
-git log
+$ git log
 </pre>
 
-Cada commit en una línea (salida más compacta):
+Cada commit en una línea:
 <pre>
-git log --oneline
+$ git log --oneline
+</pre>
+
+Commits de todas las ramas:
+<pre>
+$ git log --all
 </pre>
 
 Historia en forma de grafo:
 <pre>
-git log --graph
+$ git log --graph
 </pre>
 
+??:
+<pre>
+$ git log --decorate
+</pre>
+
+Lo común es utilizar lo anterior junto:
+<pre>
+$ git log --oneline --decorate --all --graph
+</pre>
 
 Muestra todos los commits creados, el lugar en el que estamos `HEAD` y la rama actual `master`.
 
-```bash
-git log --oneline --decorate --all --graph # decorate y graph permite mostrar arbol graficamente
+<pre>
+
 git log -- <file_name>
 git log --follow <file_name>
-```
+</pre>
 hash
 HEAD: último commit en la rama actual
 rama actual
 Autor
 fecha
 
+<img src="https://i.imgur.com/0dFiY8m.png">
+
+
+
+
+
+
+----
 ```bash
 # comando visto en instagram:
 # Usado cuando intento psuhear algo y me doi cuenta que ha habido cambios en el flujo principal
@@ -217,6 +239,7 @@ alias repush="git pull --rebase && git push"
 alias repush="git push -f"
 
 ```
+
 
 ## git diff
 
