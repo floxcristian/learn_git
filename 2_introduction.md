@@ -31,8 +31,34 @@ Git utiliza una arquitectura de 3 niveles:
 1. **commit:** contiene información sobre el autor, momento y el mensaje de los cambios.
 2. **tree:** cada commit contiene un árbol donde se registran los nombres y rutas de los archivos cuando se hizo el commit.
 3. **blob:** para cada archivo del árbol hay un blob, que contiene la snapshot comprimida del archivo cuando se hizo el commit.
-
+```
+<<<<<<< HEAD
 <img src="https://i.imgur.com/KosGd4Q.png">
 
 ## Flujo de trabajo
 
+=======
+<<<<<<< HEAD:2_introduction.md
+<img src="https://i.imgur.com/KosGd4Q.png">
+```
+Flujo de trabajo
+
+Crea un archivo README (sin seguimiento)
+Agrega el archivo al stagign area (empieza a dar seguimiento)
+Realizar commit (registrar cambios
+
+git init
+echo "hola mundo" >> README.txt
+git status
+git add README.md
+git status
+git commit -m
+git status
+code README.md
+touch LICENSE.md
+git status
+git add .
+git status
+
+git log
+<img src="https://i.imgur.com/KosGd4Q.png">

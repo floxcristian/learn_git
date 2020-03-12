@@ -20,6 +20,11 @@ Crear una rama y activarla en un solo paso:
 $ git checkout -b <b>my_branch</b>
 </pre>
 
+Eliminar una rama:
+<pre>
+git branch -d <b>my_branch</b>
+</pre>
+
 
 
 Fusión de ramas
