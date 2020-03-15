@@ -103,21 +103,25 @@ Ejemplo:
 
 ---
 
-## 3.2. Rastrear archivos nuevos / Añadir cambios al STAGING AREA
+# 3. Añadir cambios al STAGE
 
-Prepara cambios para enviarlos al repositorio: envía archivos al `STAGING AREA`.
+Prepara cambios para enviarlos al repositorio (los envía al `STAGE`). También comienza a rastrearlos si es que no lo estan siendo.
 
-+ Rastrear un archivo específico:
++ Preparar un archivo específico:
 <pre>
-git add <b>README.md</b>
+$ git add <b>README.md</b>
 </pre>
-+ Rastrear múltiples archivos:
++ Preparar múltiples archivos:
 <pre>
-git add <b>index.html index.js</b>
+$ git add <b>index.html index.js</b>
++ Preparar archivos de un directorio:
+<pre>
+
 </pre>
-+ Rastrear todos los archivos:
+</pre>
++ Preparar todos los archivos:
 <pre>
-git add .
+$git add .
 </pre> 
 
 <pre>
@@ -127,26 +131,6 @@ git add *
 git add -all
 </pre>
 
-
-
----
-## Añadiendo flags
-
-Cuando se antepone `--` es porque a continuación viene una palabra.
-
---<palabra> 
-
-Ejemplo:
-
-// Cuando se pone un solo `-` significa que cada letra a continuación es un comando independiente.
-
--<letra><letra>... 
-
-
-
----
-
-## 4.3. git add 
 
 
 |   | Archivos nuevos | Archivos modificados | Archivos eliminados |
@@ -174,9 +158,22 @@ git add -A # igual a git add .??
 git reset *.xml # excluye todos los archivos xml
 ```
 
-## Crea registro histórico
-Crea registro histórico con archivos en el stage.
+---
+## Añadiendo flags
 
+Cuando se antepone `--` es porque a continuación viene una palabra.
+
+--<palabra> 
+
+Ejemplo:
+
+// Cuando se pone un solo `-` significa que cada letra a continuación es un comando independiente.
+
+-<letra><letra>... 
+
+
+
+---
 
 
 # 9. Historial de versiones
@@ -241,24 +238,20 @@ alias repush="git push -f"
 ```
 
 
-## git diff
-
-+ Muestra cambios entre el último commit y el momento actual.
-+ Muestra todos los cambios que realizamos en relación a lo que esta en el master remoto.
-+ Para salir presiono `q`.
-
-```bash
-git diff README.md
-```
+# 10. Ver cambios específicos
 
 
-Para verificar cambios si los archivos estan en `STAGE`.
-```
+Muestra los cambios (líneas añadidas y eliminadas) entre el último commit y lo no que hemos preparado:
+<pre>
+git diff
+</pre>
+
+Compara lo que esta en el último commit con lo que está en el `STAGE`:
+<pre>
 git diff --staged
-```
+</pre>
 
-git diff a fondo
-
+## 10.1. Detalles de los cambios
 ```
 - lineas eliminadas
 + lineas agregadas
@@ -273,13 +266,13 @@ Muestra la
 -+ archivos que no están en el stage ()
 ++ archivos que no están en el stage.
 ```
-## Sacar archivos del STAGE
+# 11. Moverse a un punto en el tiempo
 
-```
+Sacar archivos del `STAGE`:
+<pre>
 git reset HEAD <nombre_archivo>
+</pre>
 
-
-## git reset
 
 `HEAD^`: Apunta al penúltimo commit.
 Deje en el penultimo commit sin eliminar los cambios. Deja los cambios fuera del STAGE.
@@ -318,18 +311,24 @@ git reset --hard <id_commit>
 ```
 
 
-# 11. Conectar repositorio local a servidor remoto:
+# 1. Conectar repositorio local a servidor remoto:
 
 <pre>
 $ git remote add origin <b>https://github.com/floxcristian/learn_git</b>
 </pre>
+
+Ver dónde apunta el repositorio local:
+<pre>
+$ git remote show origin
+</pre>
+
 
 
 ## git push
 
 Despliega un login para ingresar a nuestra cuenta de Github y subir el código.
 ```bash
-git push -u origin master
+git push -u origin <b>master</b>
 ```
 
 ## git blame

@@ -13,16 +13,13 @@ git clone <b>https://github.com/floxcristian/learn_git</b>
 </pre>
 
 
-Crea una nueva carpeta con el nombre del repositorio, un subcarpeta oculta `.git`, descarga toda la información del repositorio y envía una copia al `working directory` de la última versión.
+Crea una nueva carpeta con el nombre del repositorio y una subcarpeta oculta `.git`, descarga toda la información del repositorio y envía una copia de la última versión al `working directory`.
 
 Clonar un repositorio en una carpeta específica:
 <pre>
 $ git clone <b>https://github.com/floxcristian/learn_git my_repo</b>
 </pre>
 
-
-
-# 5. Ignorar archivos
 
 # 7. Confirmar cambios
 
@@ -39,6 +36,23 @@ Actualizar el último commit (mensaje y cambios):
 <pre>
 $ git commit --amend -m <b>"my message"</b>
 </pre>
+
++ No hay conflictos pero otro compañero ha hecho push antes:
+<pre>
+$ git pull
+$ git commit -m "merge with latest changes"
+$ git push
+</pre>
+
++ Hay conflictos. El código a pushear entra en contradicción con el último commit.
+<pre>
+$ git pull
+-- resolver conflictos visibles en el IDE
+$ git add .
+$ git commit -m "solved merge conflicts"
+$ git push
+</pre>
+
 
 ## 7.1. Referenciar un commit
 
