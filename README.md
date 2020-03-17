@@ -234,38 +234,9 @@ fecha
 # Usado cuando intento psuhear algo y me doi cuenta que ha habido cambios en el flujo principal
 alias repush="git pull --rebase && git push"
 alias repush="git push -f"
-
 ```
 
 
-# 10. Ver cambios específicos
-
-
-Muestra los cambios (líneas añadidas y eliminadas) entre el último commit y lo no que hemos preparado:
-<pre>
-git diff
-</pre>
-
-Compara lo que esta en el último commit con lo que está en el `STAGE`:
-<pre>
-git diff --staged
-</pre>
-
-## 10.1. Detalles de los cambios
-```
-- lineas eliminadas
-+ lineas agregadas
-diff --git a/README.md b/README.md
-index af24015..57fc052 100644
---- a/README.md
-+++ b/README.md
-@@ -227,7 +227,7 @@
-Muestra la
-+ rama actual.
-+ archivos en el stage.
--+ archivos que no están en el stage ()
-++ archivos que no están en el stage.
-```
 # 11. Moverse a un punto en el tiempo
 
 Sacar archivos del `STAGE`:
